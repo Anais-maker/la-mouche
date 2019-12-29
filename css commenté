@@ -1,0 +1,264 @@
+
+* {
+  box-sizing: border-box;
+  /*gg*/
+}
+
+h1 { /* Apparence de "CSS only..." et "Game over !"*/
+  font-size: 1.4em;
+}
+
+body {
+  counter-reset: game; /*On initialise le compteur, appelé "game", à 0*/
+  text-align: center; /*On aligne le texte horizontalement*/
+  background: #e9b58b; /*Couleur de fond*/
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  color: #333;
+}
+
+input:checked { /*lorsque'on l'on clique sur une cible ...*/
+  counter-increment: game; /*.. on incrémente (+1) le compteur, appelé "game"*/
+}
+
+.total-count::after { /*Ajoute un texte après l'élément' de classe "total-count"*//*gg*/
+  content: counter(game); /*gg*/ /*Ajoute le nombre de points*/
+}
+
+h2 { /* Apparence de "This game..."*/
+  font-size: 1em;
+  margin: -.5em auto 3em;
+  font-weight: 400;
+}
+
+.total-count { /* Apparence de total-count*/
+  font-size: 1.75em;
+  position: absolute;
+  top: 1.75em;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  z-index: 300; /*gg*/ /*plus grand z-index*/
+}
+
+.game-area { /*Apparence de game-area, grille qui contient les cibles*/
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  min-height: 550px;
+  max-height: 700px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+li { /*Apparence des li, c'est-à-dire des cibles*/
+  width: calc(33% - .5em); /*gg*/
+  margin-bottom: 1em;
+  height: 10em;
+  list-style: none;
+  position: relative;
+  outline: 4px solid white; /*gg*/
+  background: #64ddf3;
+}
+li:nth-child(1) input {
+  -webkit-filter: hue-rotate(257.7092070238deg) brightness(1.9090369895);
+          filter: hue-rotate(257.7092070238deg) brightness(1.9090369895); /*gg*/ /*change la couleur des cibles*/
+  -webkit-animation-duration: 2.456735225s;
+          animation-duration: 2.456735225s;
+}
+li:nth-child(2) input {
+  -webkit-filter: hue-rotate(51.2013155852deg) brightness(1.4036117692);
+          filter: hue-rotate(51.2013155852deg) brightness(1.4036117692);
+  -webkit-animation-duration: 1.4983507722s;
+          animation-duration: 1.4983507722s;
+}
+li:nth-child(3) input {
+  -webkit-filter: hue-rotate(0.7415931969deg) brightness(1.545088657);
+          filter: hue-rotate(0.7415931969deg) brightness(1.545088657);
+  -webkit-animation-duration: 1.2176815518s;
+          animation-duration: 1.2176815518s;
+}
+li:nth-child(4) input {
+  -webkit-filter: hue-rotate(151.5113597278deg) brightness(1.3171347018);
+          filter: hue-rotate(151.5113597278deg) brightness(1.3171347018);
+  -webkit-animation-duration: 1.3203013671s;
+          animation-duration: 1.3203013671s;
+}
+li:nth-child(5) input {
+  -webkit-filter: hue-rotate(274.0314436438deg) brightness(1.7640621156);
+          filter: hue-rotate(274.0314436438deg) brightness(1.7640621156);
+  -webkit-animation-duration: 3.3006705927s;
+          animation-duration: 3.3006705927s;
+}
+li:nth-child(6) input {
+  -webkit-filter: hue-rotate(307.4324910052deg) brightness(1.381457788);
+          filter: hue-rotate(307.4324910052deg) brightness(1.381457788);
+  -webkit-animation-duration: 1.7409753922s;
+          animation-duration: 1.7409753922s;
+}
+li:nth-child(7) input {
+  -webkit-filter: hue-rotate(260.1042334969deg) brightness(1.1728555262);
+          filter: hue-rotate(260.1042334969deg) brightness(1.1728555262);
+  -webkit-animation-duration: 4.9183410159s;
+          animation-duration: 4.9183410159s;
+}
+li:nth-child(8) input {
+  -webkit-filter: hue-rotate(93.2382935425deg) brightness(1.6480724043);
+          filter: hue-rotate(93.2382935425deg) brightness(1.6480724043);
+  -webkit-animation-duration: 1.9065403553s;
+          animation-duration: 1.9065403553s;
+}
+li:nth-child(9) input {
+  -webkit-filter: hue-rotate(108.3563670635deg) brightness(1.5146866973);
+          filter: hue-rotate(108.3563670635deg) brightness(1.5146866973);
+  -webkit-animation-duration: 0.6515642102s;
+          animation-duration: 0.6515642102s;
+}
+
+input[type="checkbox"] {/*change l'apparence de checkboxs pour les transformer en cibles rouges et blanches*/
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  cursor: crosshair; /*gg*/
+  background: radial-gradient(red 10%, white 10%, white 30%, red 30%, red 50%, white 50%, white 80%, red 80%, red 100%); /*couleurs cibles*/
+  border-radius: 50%; /*cibles rondes*/
+  display: block;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  -webkit-appearance: none; /*gg*/
+     -moz-appearance: none;
+          appearance: none;
+  border: 6px solid red;
+  -webkit-animation: hide-target infinite alternate ease-in-out; /*gg*/
+          animation: hide-target infinite alternate ease-in-out;
+  z-index: 1; /*gg*/
+}
+input[type="checkbox"]:before {
+  content: ''; /*gg*/
+  display: block;
+  background-color: black;
+  height: 50%;
+  width: 6px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px); /*gg*/
+  margin: 0 auto;
+  z-index: -1; /*gg*/ /*plus petit z-index*/
+}
+input[type="checkbox"]:focus /*gg*//*quand il est sélectionné*/ {
+  outline: none; /*gg*/
+  -webkit-appearance: none; /*gg*/
+     -moz-appearance: none;
+          appearance: none;
+}
+input[type="checkbox"]:checked {
+  pointer-events: none; /*gg*/
+  -webkit-filter: grayscale(1) opacity(0.75); /*gg*/ /*gg*/ /*rend l'input en noir et blanc*/
+          filter: grayscale(1) opacity(0.75);
+  -webkit-animation: none; /*gg*/
+          animation: none;
+}
+input[type="checkbox"]:checked:after /*gg*/ /*rajout un "+1" à côté de la cible qui a été touché"*/
+ {
+  content: '+1!'; /*gg*/
+  padding: .5em;
+  margin: 1em 0 0 1.5em;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+.shield { /*Apparence des div ne contenant qu'un espace, genre " ", ce qui correspond à la barrière marron devant les cilbles*/
+  background: #724c20;
+  width: 100%;
+  height: 60%;
+  margin: 0 auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  pointer-events: all; /*gg*/
+  z-index: 100; /*gg*/
+}
+
+@-webkit-keyframes hide-target { /*gg*/ /*détails de l'animation qui s'appelle "hide-target"*/
+  0% {
+    top: 0;
+  }
+  25% {
+    top: 50%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes hide-target {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: 50%;
+  }
+  100% {
+    top: 0;
+  }
+}
+.game-over { /*apparence de l'écran game over*/
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: white;
+  pointer-events: all; /*gg*/
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 200; /*gg*/
+  -webkit-animation: appear .25s forwards; /*gg*/
+          animation: appear .25s forwards;
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+  background: repeating-linear-gradient(-45deg, #c9ff00 0, #c9ff00 5em, #20c0ff 5em, #20c0ff 10em);
+}
+.game-over h1 { /*Apparence du texte "Game Over"*/
+  padding: 1em 0 3.5em;
+  background: white;
+}
+
+@-webkit-keyframes appear { /*gg*/ /*Détails de l'animation qui s'appele "appear"*/
+  from {
+    top: -100vh;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    top: -100vh;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+.play-again { /*Apparence du lien "Play Again"*/
+  background: white;
+  color: #20c0ff;
+  padding: .5em 1em;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+small a { /*Apparence du lien de bas de page*/
+  margin-bottom: 2em;
+  display: block;
+  color: #222;
+}
