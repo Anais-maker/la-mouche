@@ -117,12 +117,13 @@ input[type="checkbox"]:focus {
 }
 input[type="checkbox"]:checked {
   pointer-events: none;
-  -webkit-filter: grayscale(1) opacity(0);
-          filter: grayscale(1) opacity(0);
+  -webkit-filter: grayscale(1) opacity(0.75);
+          filter: grayscale(1) opacity(0.75);
   -webkit-animation: dead;
           animation: dead;
  -webkit-animation-duration: 2s;
  animation-duration: 2s;
+  opacity: 0;
 }
 input[type="checkbox"]:checked:after {
   content: '+1!';
