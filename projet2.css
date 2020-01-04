@@ -10,15 +10,15 @@ le dimensionnement des éléments.*/
 }
 
 html, body {
-    height: 100%;
-    width: 100%;
+    height: 99%;
+    width: 99%;
 }
 .ZoneDeJeu {
   display: grid;
-  grid-template-rows: 10% 1fr 5%;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 10% 1fr 3%;
+  grid-template-columns: 1fr 6fr 1fr;
   grid-gap : 25px;
-  height: 100%;
+  height: 98%;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
@@ -100,6 +100,8 @@ input[type="checkbox"] {
   border: 6px solid red;
   -webkit-animation: hide-target infinite alternate ease-in-out;
           animation: hide-target infinite alternate ease-in-out;
+-webkit-animation-duration: 4s;
+animation-duration: 4s;
   z-index: 1;
   position: relative;
 }
@@ -127,25 +129,39 @@ input[type="checkbox"]:checked:after {
 
 
 @-webkit-keyframes hide-target {
-  0% {
-    top: 0;
+    0% {
+     top: 0;
+   }
+  10% {
+      left: 40%;
   }
-  25% {
-    top: 50%;
-  }
-  100% {
-    top: 0;
-  }
+   25% {
+     top: 400%;
+   }
+   
+   50%{
+       left: -35%;
+   }
+   100% {
+     top: 200%;
+   }
 }
 
 @keyframes hide-target {
   0% {
-    top: 0;
+     top: 0;
+   }
+  10% {
+      left: 40%;
   }
-  25% {
-    top: 50%;
-  }
-  100% {
-    top: 0;
-  }
+   25% {
+     top: 400%;
+   }
+   
+   50%{
+       left: -35%;
+   }
+   100% {
+     top: 200%;
+   }
 }
