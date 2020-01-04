@@ -35,9 +35,15 @@ html, body {
     grid-area: 1/1/2/4;
 }
 
-.ZoneDeJeu ul{
+.game-area{
     grid-area: 2/2/3/3;
     list-style: none;
+}
+
+.game-area li{
+    
+    display: flex;
+    flex-wrap: wrap;
 }
 
 body {
@@ -100,7 +106,7 @@ input[type="checkbox"] {
   border: 6px solid red;
   z-index: 1;
   position: relative;
-  opacity: 1;
+  opacity: 0;
 }
 
 input[type="checkbox"]:focus {
@@ -111,13 +117,12 @@ input[type="checkbox"]:focus {
 }
 input[type="checkbox"]:checked {
   pointer-events: none;
-  -webkit-filter: grayscale(1) opacity(0.75);
-          filter: grayscale(1) opacity(0.75);
+  -webkit-filter: grayscale(1) opacity(0);
+          filter: grayscale(1) opacity(0);
   -webkit-animation: dead;
           animation: dead;
  -webkit-animation-duration: 2s;
  animation-duration: 2s;
- opacity: 0;
 }
 input[type="checkbox"]:checked:after {
   content: '+1!';
@@ -128,45 +133,55 @@ input[type="checkbox"]:checked:after {
 }
 
 
-li:nth-child(1) input {
+li .mouche1 {
+-webkit-animation: hide-target1 infinite alternate ease-in-out;
+        animation: hide-target1 infinite alternate ease-in-out;
+-webkit-animation-duration: 4s;
+        animation-duration: 4s;
+opacity: 1;
+
+}
+
+li .mouche2 {
 -webkit-animation: hide-target1 infinite alternate ease-in-out;
         animation: hide-target1 infinite alternate ease-in-out;
 -webkit-animation-duration: 4s;
         animation-duration: 4s;
 }
-
-li:nth-child(2) input {
--webkit-animation: hide-target1 infinite alternate ease-in-out;
-        animation: hide-target1 infinite alternate ease-in-out;
--webkit-animation-duration: 4s;
-        animation-duration: 4s;}
-}
-li:nth-child(3) input {
+li .mouche3 {
 -webkit-animation: hide-target2 infinite alternate ease-in-out;
         animation: hide-target2 infinite alternate ease-in-out;
 -webkit-animation-duration: 4s;
         animation-duration: 4s;
         
 }
-li:nth-child(4) input {
+li .mouche4 {
 -webkit-animation: hide-target1 infinite alternate ease-in-out;
         animation: hide-target1 infinite alternate ease-in-out;
 -webkit-animation-duration: 4s;
         animation-duration: 4s;
 }
-li:nth-child(5) input {
+li .mouche5 {
 -webkit-animation: hide-target2 infinite alternate ease-in-out;
     animation: hide-target2 infinite alternate ease-in-out;
 -webkit-animation-duration: 4s;
     animation-duration: 4s;
 }
-li:nth-child(6) input {
+li .mouche6 {
 -webkit-animation: hide-target1 infinite alternate ease-in-out;
         animation: hide-target1 infinite alternate ease-in-out;
 -webkit-animation-duration: 1s;
         animation-duration: 1s;
 }
 
+
+.mouche1:checked  ~ .mouche2, .mouche1:checked  ~ .mouche3{
+        opacity: 1;
+}
+
+.mouche3:checked  ~ .mouche4, .mouche3:checked  ~ .mouche5, .mouche3:checked  ~ .mouche6{
+    opacity: 1;
+}
 
 @-webkit-keyframes hide-target1 {
     0% {
@@ -310,7 +325,7 @@ li:nth-child(6) input {
 
 @-webkit-keyframes dead {
     0%{
-        opacity:1;
+        opacity:1 ;
     }
     50%{
         opacity:1;
@@ -376,8 +391,8 @@ aniamtion-delay: 5s;
   z-index: 200; /*gg*/
   -webkit-animation: appear .25s forwards; /*gg*/
           animation: appear .25s forwards;
-  -webkit-animation-delay: 100s;
-          animation-delay: 100s;
+  -webkit-animation-delay: 16s;
+          animation-delay: 16s;
   background: repeating-linear-gradient(-45deg, #c9ff00 0, #c9ff00 5em, #20c0ff 5em, #20c0ff 10em);
 }
 
