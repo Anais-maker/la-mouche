@@ -98,12 +98,9 @@ input[type="checkbox"] {
      -moz-appearance: none;
           appearance: none;
   border: 6px solid red;
-  -webkit-animation: hide-target infinite alternate ease-in-out;
-          animation: hide-target infinite alternate ease-in-out;
--webkit-animation-duration: 4s;
-animation-duration: 4s;
   z-index: 1;
   position: relative;
+  opacity: 1;
 }
 
 input[type="checkbox"]:focus {
@@ -116,8 +113,11 @@ input[type="checkbox"]:checked {
   pointer-events: none;
   -webkit-filter: grayscale(1) opacity(0.75);
           filter: grayscale(1) opacity(0.75);
-  -webkit-animation: none;
-          animation: none;
+  -webkit-animation: dead;
+          animation: dead;
+ -webkit-animation-duration: 2s;
+ animation-duration: 2s;
+ opacity: 0;
 }
 input[type="checkbox"]:checked:after {
   content: '+1!';
@@ -128,7 +128,47 @@ input[type="checkbox"]:checked:after {
 }
 
 
-@-webkit-keyframes hide-target {
+li:nth-child(1) input {
+-webkit-animation: hide-target1 infinite alternate ease-in-out;
+        animation: hide-target1 infinite alternate ease-in-out;
+-webkit-animation-duration: 4s;
+        animation-duration: 4s;
+}
+
+li:nth-child(2) input {
+-webkit-animation: hide-target1 infinite alternate ease-in-out;
+        animation: hide-target1 infinite alternate ease-in-out;
+-webkit-animation-duration: 4s;
+        animation-duration: 4s;}
+}
+li:nth-child(3) input {
+-webkit-animation: hide-target2 infinite alternate ease-in-out;
+        animation: hide-target2 infinite alternate ease-in-out;
+-webkit-animation-duration: 4s;
+        animation-duration: 4s;
+        
+}
+li:nth-child(4) input {
+-webkit-animation: hide-target1 infinite alternate ease-in-out;
+        animation: hide-target1 infinite alternate ease-in-out;
+-webkit-animation-duration: 4s;
+        animation-duration: 4s;
+}
+li:nth-child(5) input {
+-webkit-animation: hide-target2 infinite alternate ease-in-out;
+    animation: hide-target2 infinite alternate ease-in-out;
+-webkit-animation-duration: 4s;
+    animation-duration: 4s;
+}
+li:nth-child(6) input {
+-webkit-animation: hide-target1 infinite alternate ease-in-out;
+        animation: hide-target1 infinite alternate ease-in-out;
+-webkit-animation-duration: 1s;
+        animation-duration: 1s;
+}
+
+
+@-webkit-keyframes hide-target1 {
     0% {
      top: 0;
    }
@@ -147,7 +187,7 @@ input[type="checkbox"]:checked:after {
    }
 }
 
-@keyframes hide-target {
+@keyframes hide-target1 {
   0% {
      top: 0;
    }
@@ -164,4 +204,206 @@ input[type="checkbox"]:checked:after {
    100% {
      top: 200%;
    }
+}
+
+
+@-webkit-keyframes hide-target2 {
+  
+  0% {
+    top: 0;
+  }
+  10%{
+    left:40%;
+  }
+  20% {
+    top: 360%;
+    right:12%;
+  }
+  30% {
+    top: 100%;
+    left:-17%;
+  }
+  40%{
+    top: 50%;
+    left : 35%;
+ }
+  50% {
+    top:65%;
+    left:-45%;
+  }
+  60% {
+    top: 105%;
+    left : 27%;
+  }
+  70%{
+    top:150%;
+    left:16%;
+  }
+  80%{
+    top:320%;
+    left:-50%;
+  }
+  90% {
+    top: 140%;
+    left: -48%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes hide-target2 {
+  0% {
+    top: 0;
+  }
+  10%{
+    left:40%;
+  }
+  20% {
+    top: 360%;
+    right:12%;
+  }
+  30% {
+    top: 100%;
+    left:17%;
+  }
+  40%{
+    top: 50%;
+    left : 35%;
+ }
+  50% {
+    top:165%;
+    left:-45%;
+  }
+  60% {
+    top: 105%;
+    left : 27%;
+  }
+  70%{
+    top:150%;
+    left:16%;
+  }
+  80%{
+    top:320%;
+    left: -50%;
+  }
+  90% {
+    top: 140%;
+    left: -48%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@-webkit-keyframes dead {
+    0%{
+        opacity:1;
+    }
+    50%{
+        opacity:1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes dead {
+  0%{
+      opacity:1;
+  }
+  50%{
+      opacity:1;
+  }
+  100%{
+      opacity: 0;
+  }
+}
+
+
+.instructions { /*apparence de l'écran game over*/
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: white;
+  pointer-events: all; /*gg*/
+  position: absolute;
+  z-index: 500; /*gg*/
+  -webkit-animation: disappear .25s forwards; /*gg*/
+          animation: disappear .25s forwards;
+-webkit-animation-delay: 5s;
+aniamtion-delay: 5s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  background: repeating-linear-gradient(-45deg, #c9ff00 0, #c9ff00 5em, #20c0ff 5em, #20c0ff 10em);
+}
+.instructions h1 { /*Apparence du texte "Game Over"*/
+  padding: 1em 0 3.5em;
+  background: white;
+}
+
+@keyframes disappear {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: -100vh;
+    opacity: 0;
+  }
+}
+ .game-over { /*apparence de l'écran game over*/
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: white;
+  pointer-events: all; /*gg*/
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 200; /*gg*/
+  -webkit-animation: appear .25s forwards; /*gg*/
+          animation: appear .25s forwards;
+  -webkit-animation-delay: 100s;
+          animation-delay: 100s;
+  background: repeating-linear-gradient(-45deg, #c9ff00 0, #c9ff00 5em, #20c0ff 5em, #20c0ff 10em);
+}
+
+.game-over h1 { /*Apparence du texte "Game Over"*/
+  padding: 1em 0 3.5em;
+  background: white;
+  margin-top: 4%;
+}
+
+@keyframes appear {
+  from {
+    top: -100vh;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+
+
+.play-again { /*Apparence du lien "Play Again"*/
+  background: white;
+  color: #20c0ff;
+  padding: .5em 1em;
+  font-size: 2.5em;
+  font-weight: 700;
 }
