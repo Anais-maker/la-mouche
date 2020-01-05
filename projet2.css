@@ -184,6 +184,15 @@ li .mouche6 {
     opacity: 1;
 }
 
+.mouche1:checked  ~ .mouche2:checked, .mouche1:checked  ~ .mouche3:checked{
+        opacity: 0;
+}
+
+.mouche3:checked  ~ .mouche4:checked, .mouche3:checked  ~ .mouche5:checked, .mouche3:checked  ~ .mouche6:checked{
+    opacity: 0;
+}
+
+
 @-webkit-keyframes hide-target1 {
     0% {
      top: 0;
